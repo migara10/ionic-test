@@ -1,0 +1,7 @@
+{
+  "name": "visit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

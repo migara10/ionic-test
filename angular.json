@@ -31,7 +31,11 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss",
+              "./node_modules/intl-tel-input/build/css/intlTelInput.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -111,7 +115,9 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss"],
             "scripts": []
           },
           "configurations": {
@@ -124,19 +130,15 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@ionic/angular-toolkit"
-    ]
+    "schematicCollections": ["@ionic/angular-toolkit"],
+    "analytics": "3bf8173d-8558-4a34-916b-3fd22fae1c3a"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

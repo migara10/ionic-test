@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, NavParams, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popup-model',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupModelPage implements OnInit {
 
-  constructor() { }
+  title: any;
+  id: any;
+  html_content: any;
+  isStartProgress: boolean | undefined;
+
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
   }
+  async closeModal() {
+    await this.modalController.dismiss();
+  }
 
 }
+
+

@@ -7,12 +7,10 @@ import {
 } from 'ngx-intl-tel-input';
 import { ApiService } from '../api.service';
 import { Constants } from '../app-routing.module';
-import { ToastController, ModalController } from '@ionic/angular';
-import {
-  NgxOtpInputComponent,
-  NgxOtpInputComponentOptions,
-  NgxOtpStatus,
-} from 'ngx-otp-input';
+import * as $ from 'jquery';
+import { NgxOtpInputComponent, NgxOtpInputComponentOptions, NgxOtpStatus } from 'ngx-otp-input';
+import { ModalController } from '@ionic/angular';
+import { PopupModelPage } from '../popup-model/popup-model.page';
 
 interface PhoneNumber {
   number: string;
@@ -52,7 +50,7 @@ export class UserRegisterPage implements OnInit {
   element_: any;
   firstname: any;
 
-  constructor(public ApiProvider: ApiService) {}
+  constructor(public ApiProvider: ApiService, private modalController: ModalController) {}
 
   ngOnInit() {}
 
@@ -67,6 +65,27 @@ export class UserRegisterPage implements OnInit {
   phoneForm = new FormGroup({
     phone: new FormControl(undefined, [Validators.required]),
   });
+  
+  AgreementCheck(event: any) {
+    // this.btndisabled = !event.currentTarget.checked;
+  }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: PopupModelPage
+    });
+    return await modal.present();
+  }
+
+  async openModel(title: string, id: any) {
+    const modal = await this.modalController.create({
+      component: PopupModelPage,
+      componentProps: {
+        title: title,
+        id: id
+      }
+    });
+    return await modal.present();
+  }
 
   onOtpChange(otp: string[]) {
     const hasValue = otp.some((value) => value !== '');
@@ -80,7 +99,7 @@ export class UserRegisterPage implements OnInit {
 
   onOtpComplete(otp: string) {
     this.otpCompleteValue = otp;
-    console.log(this.otpCompleteValue, 'okk');
+    console.log(this.otpCompleteValue, 'okk')
     this.VerifyOTP(this.otpCompleteValue);
   }
   changePreferredCountries() {
@@ -147,16 +166,7 @@ export class UserRegisterPage implements OnInit {
     );
   }
 
-  async openModel(title: string, id: any) {
-    const modal = await this.modalController.create({
-      component: PopupModelPage,
-      componentProps: {
-        title: title,
-        id: id,
-      },
-    });
-    return await modal.present();
-  }
+  
 }
 
 /*   getCodeBoxElement(index: any | null) {

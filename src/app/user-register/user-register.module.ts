@@ -9,7 +9,7 @@ import { UserRegisterPageRoutingModule } from './user-register-routing.module';
 import { UserRegisterPage } from './user-register.page';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { NgxOtpInputComponent } from 'ngx-otp-input';
-
+import { PopupModelPageModule } from '../popup-model/popup-model.module';
 
 @NgModule({
   imports: [
@@ -21,8 +21,8 @@ import { NgxOtpInputComponent } from 'ngx-otp-input';
     ReactiveFormsModule,
     NgxIntlTelInputModule,
     NgxOtpInputComponent,
-    
+    PopupModelPageModule,
   ],
-  declarations: [UserRegisterPage]
+  declarations: [UserRegisterPage],
 })
 export class UserRegisterPageModule {}

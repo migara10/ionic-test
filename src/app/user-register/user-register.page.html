@@ -27,19 +27,48 @@
         >
         </ngx-intl-tel-input>
       </div>
+      <!-- <div class="agreement">
+        <div>
+          <input type="checkbox" (change)="AgreementCheck($event)" />
+        </div>
+        <div>
+          <label class="agreementTitle"
+            >I agree to VisitChecklist
+            <a (click)="openModel('Terms Of Use',0)" class="linkToAgreement"
+              >Terms Of Use, </a
+            ><a
+              (click)="openModel('Informed Consent',1)"
+              class="linkToAgreement"
+            >
+              Informed Consent</a
+            ><a (click)="openModel('Privacy Policy',2)" class="linkToAgreement">
+              & Privacy Policy</a
+            ></label
+          >
+        </div>
+      </div> -->
       <div class="agreement">
         <div>
-            <input type="checkbox" (change)="AgreementCheck($event)" />
+          <input type="checkbox" (change)="AgreementCheck($event)" />
         </div>
         <div>
-            <label class="agreementTitle">I agree to VisitChecklist <a (click)="openModel('Terms Of Use',0)"
-                    class="linkToAgreement">Terms Of Use, </a><a (click)="openModel('Informed Consent',1)"
-                    class="linkToAgreement"> Informed Consent</a><a (click)="openModel('Privacy Policy',2)"
-                    class="linkToAgreement"> & Privacy Policy</a></label>
+          <label class="agreementTitle"
+            >I agree to VisitChecklist
+            <a (click)="openModel('Terms Of Use',0)" class="linkToAgreement"
+              >Terms Of Use, </a
+            ><a
+              (click)="openModel('Informed Consent',1)"
+              class="linkToAgreement"
+            >
+              Informed Consent</a
+            ><a (click)="openModel('Privacy Policy',2)" class="linkToAgreement">
+              & Privacy Policy</a
+            ></label
+          >
         </div>
-    </div>
+      </div>
       <button (click)="SendOTP()" [disabled]="!f.form.valid">Send</button>
-<!-- 
+      <!-- 
       <div>
         <strong>Is input valid:</strong>
         <pre>{{ !f.form.controls['phone'].invalid }}</pre>
@@ -66,57 +95,6 @@
     </form>
   </div>
 </ion-content>
-
-<!-- <ion-content>
-  <div class="wrapper fade-in">
-    <h4 class="header-title">Validate Number</h4>
-    <p class="detail-txt">
-      Please enter the OTP code that we are sent to your mobile
-      ({{selectedNumber}}).
-    </p>
-    <form fade-in>
-      <input
-        id="hiddenpinopt"
-        type="tel"
-        maxlength="4"
-        style="position: absolute; background: transparent"
-      />
-
-      <input
-        id="codeBox1"
-        onclick="this.focus();this.select()"
-        type="tel"
-        maxlength="1"
-        (keyup)="onKeyUpEvent(1, $event)"
-        (focus)="onFocusEvent(1)"
-      />
-      <input
-        id="codeBox2"
-        onclick="this.focus();this.select()"
-        type="tel"
-        maxlength="1"
-        (keyup)="onKeyUpEvent(2, $event)"
-        (focus)="onFocusEvent(2)"
-      />
-      <input
-        id="codeBox3"
-        onclick="this.focus();this.select()"
-        type="tel"
-        maxlength="1"
-        (keyup)="onKeyUpEvent(3, $event)"
-        (focus)="onFocusEvent(3)"
-      />
-      <input
-        id="codeBox4"
-        onclick="this.focus();this.select()"
-        type="tel"
-        maxlength="1"
-        (keyup)="onKeyUpEvent(4, $event)"
-        (focus)="onFocusEvent(4)"
-      />
-    </form>
-  </div>
-</ion-content> -->
 
 <ion-content>
   <ngx-otp-input

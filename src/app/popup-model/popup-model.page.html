@@ -1,13 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>popup-model</ion-title>
-  </ion-toolbar>
+<ion-header color="transparent" style="color:#dcdbdb">
+    <ion-toolbar color="transparent" style="color:#dcdbdb">
+        <ion-title class="user-list-title">{{title}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModal()" style="font-size: 0.7em;">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">popup-model</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content no-padding>
+    <div *ngIf="isStartProgress">
+        <div id="wrap-inside">
+            <div class="loading outer">
+                <div class="loading inner"></div>
+            </div>
+        </div>
+        <div id="loader-main-view"></div>
+    </div>
+    <div class="contentView">
+        <iframe frameborder="0" id="my-iframe" data-loaded="false" width="320" style="height: 100%;"></iframe>
+    </div>
 </ion-content>

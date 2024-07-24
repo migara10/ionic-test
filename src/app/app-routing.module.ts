@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'start-screen',
     loadChildren: () => import('./start-screen/start-screen.module').then( m => m.StartScreenPageModule)
   },
+  {
+    path: 'bio-model',
+    loadChildren: () => import('./bio-model/bio-model.module').then( m => m.BioModelPageModule)
+  },
 ];
 
 @NgModule({

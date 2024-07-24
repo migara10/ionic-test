@@ -1,0 +1,25 @@
+<ion-header color="transparent" style="color:#dcdbdb">
+  <ion-toolbar color="transparent" style="color:#dcdbdb">
+      <ion-title class="user-list-title ">{{title}}</ion-title>
+      <ion-buttons slot="end">
+          <ion-button (click)="closeModal()" style="font-size: 0.7em;">
+              <ion-icon slot="icon-only" name="close"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <div class="content-view">
+      <div id="myloader"  class="loader"></div>
+      <iframe 
+          frameborder="0" 
+          id="my-iframe" 
+          data-loaded="false" 
+          width="100%"
+          style="height: 100%; opacity:1"
+      ></iframe>
+  </div>
+</ion-content>
+<style>
+</style>

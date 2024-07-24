@@ -21,26 +21,39 @@
   </ion-toolbar>
 
   <div *ngIf="doctor" class="header-profile">
-    <ion-toolbar color="transparent" class="avatar-header fade-in">
-      <div class="user-list__avatar">
+    <ion-toolbar color="transparent" class="avatar-header fade-in" style="border: none !important;">
+      <!-- <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        
+        <ion-label>
+          <p>Hello,</p>
+          <h3>User name</h3>
+        </ion-label>
+      </ion-item> -->
+      <!-- <div class="user-list__avatar">
         <img src="{{doctor?.tenant_logo}}" class="user-list__image" />
-      </div>
-      <div class="user-list__content" (click)="openModel()">
+      </div> -->
+      <ion-avatar slot="start" (click)="openModel()">
+        <img alt="avatar" src={{doctor?.tenant_logo}} />
+      </ion-avatar>
+      <div class="user-list__content" >
         <div class="user-list__name">{{doctor?.tenant_name}}</div>
         <div class="call-icon">
-          <ion-icon class="tel-icon" ios="ios-call" md="md-call"></ion-icon>
+          <ion-icon name="call"></ion-icon>
           <span> {{doctor?.client_mobile_number}} </span>
         </div>
       </div>
     </ion-toolbar>
 
-    <!-- <ion-button class="pin-btn fmla-btn" (click)="openFMLAForm()">
+    <ion-button class="pin-btn fmla-btn" (click)="openFMLAForm()">
       Request FMLA
-    </ion-button> -->
+    </ion-button>
   </div>
 </ion-header>
 
-<!-- <ion-content forceOverscroll="false" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+<ion-content forceOverscroll="false" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
   <ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -72,4 +85,4 @@
     <h4>No Results Found</h4>
     <p>May be go back and come later</p>
   </div>
-</ion-content> -->
+</ion-content>

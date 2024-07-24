@@ -20,6 +20,14 @@ const routes: Routes = [
     path: 'popup-model',
     loadChildren: () => import('./popup-model/popup-model.module').then( m => m.PopupModelPageModule)
   },
+  {
+    path: 'date-list',
+    loadChildren: () => import('./date-list/date-list.module').then( m => m.DateListPageModule)
+  },
+  {
+    path: 'start-screen',
+    loadChildren: () => import('./start-screen/start-screen.module').then( m => m.StartScreenPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,75 @@
+<ion-header color="transparent" style="color: #dcdbdb" no-border>
+  <ion-toolbar color="transparent" style="color: #dcdbdb">
+    <ion-buttons slot="primary">
+      <ion-button
+        *ngIf="data_list"
+        [ngClass]="{'img-shake' : (data_list?.message_info | json) != '{}' && !data_list?.message_info.is_viewed,'disable-btn':(data_list?.message_info | json) == '{}'}"
+       
+        style="font-size: 0.7em"
+      >
+        <img slot="icon-only" src="../../assets/icon/inbox1.png" style="width: 1.8rem" />
+      </ion-button>
+      <ion-button (click)="Logout()" style="font-size: 0.7em">
+        <img slot="icon-only" src="../../assets/icon/settings@3x.png" style="width: 20px" />
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="user-list-title" *ngIf="isLoad">Dates</ion-title>
+  </ion-toolbar>
+  <!-- <ion-toolbar *ngIf="isLoad" color="transparent " style="color: #dcdbdb">
+    <ion-title class="header-name">Hello, {{data_list?.customer.first_name}}</ion-title>
+  </ion-toolbar> -->
+
+ <!--  <div *ngIf="doctor" class="header-profile">
+    <ion-toolbar color="transparent" class="avatar-header fade-in">
+      <div class="user-list__avatar">
+        <img src="{{doctor?.tenant_logo}}" class="user-list__image" />
+      </div>
+      <div class="user-list__content" (click)="openModel()">
+        <div class="user-list__name">{{doctor?.tenant_name}}</div>
+        <div class="call-icon">
+          <ion-icon class="tel-icon" ios="ios-call" md="md-call"></ion-icon>
+          <span> {{doctor?.client_mobile_number}} </span>
+        </div>
+      </div>
+    </ion-toolbar>
+
+    <ion-button class="pin-btn fmla-btn" (click)="openFMLAForm()">
+      Request FMLA
+    </ion-button>
+  </div> -->
+</ion-header>
+
+<!-- <ion-content forceOverscroll="false" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="user-list">
+    <div
+      class="user-list__item"
+      *ngFor="let date of data_list?.datescontent"
+      (click)="goToContentList(date) "
+    >
+      <div class="content-date" [ngStyle]="{ 'background':  date.back_groundcolor }">
+        <div>
+          <div class="c-date-m">{{Getdate(date,'m')}}</div>
+          <div class="c-date-d">{{Getdate(date,'d')}}</div>
+          <div class="c-date-y">{{Getdate(date,'y')}}</div>
+        </div>
+      </div>
+      <div class="content-details">
+        <div class="date-type">{{date.date_type}}</div>
+        <div class="date-sub-type">{{getTypeorDate(date)}}</div>
+      </div>
+      <ion-button class="pin-btn details-btn" (click)="goToInsurance(date, $event)">
+        Details
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="img-fluid fade-in" *ngIf="data_list?.datescontent.length==0 ">
+    <img src="../../assets/no-data.png " alt="image" style="height: 5em" />
+    <h4>No Results Found</h4>
+    <p>May be go back and come later</p>
+  </div>
+</ion-content> -->

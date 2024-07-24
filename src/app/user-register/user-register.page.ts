@@ -55,7 +55,7 @@ export class UserRegisterPage implements OnInit {
   element_: any;
   firstname: any;
   btnDisabled: boolean = true;
-  isSentOpt: boolean = true;
+  isSentOpt: boolean = false;
   dataSet: any;
 
   constructor(
@@ -171,12 +171,24 @@ export class UserRegisterPage implements OnInit {
       para
     ).subscribe(
       (data) => {
-        console.log(data);
+        localStorage.setItem(Constants.ACCESS_TOKEN, data.access_token);
+      localStorage.setItem(Constants.REFRESH_TOKEN, data.refresh_token);
+      localStorage.setItem(Constants.USER_TP_NUMBER, String(this.selectedNumber));
+      localStorage.setItem(Constants.SELECTED_USER_NAME, String(this.firstname));
+      localStorage.setItem(Constants.USER_FIRST_NAME, data.user.first_name);
+      localStorage.setItem(Constants.USER_TYPE, data.user_type);
+      localStorage.setItem(Constants.PIN_OBJ, data.pincode ? JSON.stringify(data.pincode) : '');
+
+        this.dataSet = data;
         if (this.dataSet.clients.length === 1) {
           const doctor = this.dataSet.clients[0];
-          this.router.navigate(['start-screen'], { queryParams: { doctor: JSON.stringify(doctor) } });
+          this.router.navigate(['start-screen'], {
+            queryParams: { doctor: JSON.stringify(doctor) },
+          });
         } else {
-          this.router.navigate(['select-doctor'], { queryParams: { doctor: JSON.stringify(data.clients) } });
+          this.router.navigate(['select-doctor'], {
+            queryParams: { doctor: JSON.stringify(data.clients) },
+          });
         }
       },
       async (error) => {

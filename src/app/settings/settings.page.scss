@@ -1,0 +1,232 @@
+#he {
+    background-color: var(--ion-color-primary);
+    background-image: url(https://s26.postimg.org/5dqw99bih/image.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #ddd;
+    padding: 2em;
+}
+
+#he h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2em;
+    margin: 0px;
+    transition: all 1s;
+    padding: 0px;
+    font-weight: 400;
+    // text-shadow: 0px 0px 4px #111;
+}
+
+#he span {
+    font-size: 15px;
+    font-style: italic;
+}
+
+#li {
+    background-color: #222428;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#li span {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#he img {
+    width: 100px;
+    height: 100px;
+    // float: middle;
+    // z-index: 999;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#bo {
+    background-color: transparent;
+    padding: 10px;
+    color: #626262;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+    padding-top: 4em;
+    text-align: center;
+    line-height: 0px;
+    // padding-bottom: 0px;
+    h4 {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+#sc {
+    margin-top: 5em;
+    text-align: center;
+}
+
+.version-span {
+    background-color: var(--ion-color-primary);
+    padding: 0.3em;
+    border-radius: 0.5em;
+    color: white;
+    font-size: 0.8em;
+}
+
+.footer-para {
+    // color: #626262;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    padding: 1em;
+}
+
+ion-content {
+    --background: #f6f6f8;
+}
+
+ion-header {
+    background-position: 50% 100%;
+    background: -webkit-linear-gradient(180deg, var(--ion-theme-color-1), var(--ion-theme-color-8));
+    background: linear-gradient(180deg, var(--ion-theme-color-1), var(--ion-theme-color-8));
+}
+
+.user-list-title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.user-list__item {
+    background: white;
+    // width: 90%;
+    border-bottom: 2px solid white;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 20vh;
+    padding: 0.5em;
+    margin: 0.7em 1em 0.7em 1em;
+    // margin-top: 0.5em;
+    border-radius: 7px;
+    box-shadow: 0 1px 1px 0 #e4e4e4;
+    display: flex;
+    height: 55vh;
+}
+
+.content-date {
+    float: left;
+    text-align: center;
+    padding: 0.45em;
+    font-size: 1em;
+    width: 30px;
+    height: 30px;
+    min-height: 30px;
+    color: white;
+    background: var(--ion-theme-color-8);
+    border-radius: 7px;
+    font-weight: 400;
+    margin: 0.4em;
+}
+
+.content-details {
+    float: right;
+    text-align: left;
+    padding: 0.5em;
+    font-size: 1em;
+    width: 65%;
+    height: 100%;
+    margin: auto;
+    .date-type {
+        font-size: 0.8em;
+        font-weight: 500;
+        margin-bottom: 0.5em;
+    }
+    .date-sub-type {
+        font-size: 0.8em;
+        color: #bcbdbe;
+    }
+}
+
+.date-toolbar-header {
+    display: inline-flex;
+    img {
+        width: 21px;
+        display: inline-block;
+        margin: auto;
+    }
+}
+
+.date-toolbar-content {
+    display: grid;
+    padding-left: 10px;
+    // margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.7em;
+    color: #747474;
+    width: 70%;
+    margin-top: auto;
+    margin-bottom: auto;
+    span {
+        font-size: 0.7em;
+        color: #d9d7d9;
+        font-weight: 400;
+    }
+}
+
+.number {
+    background: var(--ion-theme-color-1);
+
+}
+
+.pin-btn {
+    --background:var(--ion-theme-color-1);
+}
+
+.email {
+    background: var(--ion-theme-color-3);
+}
+
+.address {
+    background: var(--ion-theme-color-5);
+}
+
+.info {
+    background: var(--ion-theme-color-7);
+}
+
+.custom-width-8 {
+    width: 8em;
+}
+
+.custom-width-10 {
+    width: 10em;
+}
+
+.custom-width-13 {
+    width: 13em;
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
+ion-col {
+    --ion-grid-column-padding: 0;
+}
+
+.user-list__avatar {
+    border-radius: 50%;
+    height: 6.5rem;
+    width: 6.5rem;
+    transform: translate(-24%, -58%);
+}
+
+.user-list-title,
+.header-name {
+  text-align: start;
+  padding-left: 46px;
+}

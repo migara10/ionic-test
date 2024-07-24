@@ -1,0 +1,113 @@
+<ion-header color="transparent" style="color: #dcdbdb" no-border>
+  <ion-toolbar color="transparent" style="color: #dcdbdb">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" style="font-size: 0.7em">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="user-list-title is-back-btn">Settings</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="transparent" style="color: #dcdbdb"> </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-fab vertical="top" horizontal="center" slot="fixed">
+    <img
+      class="user-list__avatar"
+      (click)="openModel()"
+      src="{{doctor.tenant_logo}}"
+    />
+  </ion-fab>
+
+  <!-- <div id="bo">
+    <h4><span> {{doctor.tenant_name}}</span></h4>
+    <span style="font-size: 0.9em; color: #abadb1; line-height: 0px"
+      >Provider</span
+    >
+  </div> -->
+
+  <!-- <ion-grid class="user-list__item">
+    <ion-row>
+      <ion-col size="12">
+        <div class="date-toolbar-header">
+          <div class="content-date number">
+            <img src="../../assets/icon/phone-receiver@3x.png" />
+          </div>
+          <div class="date-toolbar-content">
+            {{doctor.client_mobile_number}}
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="date-toolbar-header">
+          <div class="content-date email">
+            <img src="../../assets/icon/email@3x.png" />
+          </div>
+          <div class="date-toolbar-content">{{doctor.client.email}}</div>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="date-toolbar-header">
+          <div class="content-date address">
+            <img src="../../assets/icon/address@3x.png" style="width: 12px" />
+          </div>
+          <div class="date-toolbar-content">
+            {{getAddress(doctor.client_billing_address)}}
+          </div>
+        </div>
+      </ion-col>
+      <ion-col *ngIf="doctor.tenant_description" size="12">
+        <div class="date-toolbar-header">
+          <div class="content-date info">
+            <img src="../../assets/icon/info-sign@3x.png" style="width: 8px" />
+          </div>
+          <div class="date-toolbar-content">{{doctor.tenant_description}}</div>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div style="text-align: center">
+          <a
+            style="
+              font-size: 0.7em;
+              cursor: pointer;
+              text-decoration: underline;
+            "
+            (click)="redirect()"
+            >www.visitchecklist.com
+          </a>
+          <br />
+          <span style="font-size: 0.65em">© Eshmun Solutions LLC. 2024</span>
+          <br />
+          <span style="font-size: 0.65em">Version : {{AppVersionNumber}}</span>
+          <br />
+          <a
+            style="font-size: 0.65em"
+            (click)="openModelPopup('Terms Of Use',0)"
+            >Terms Of Use,
+          </a>
+          <a
+            style="font-size: 0.65em"
+            (click)="openModelPopup('Informed Consent',1)"
+          >
+            Informed Consent</a
+          >
+          <a
+            style="font-size: 0.65em"
+            (click)="openModelPopup('Privacy Policy',2)"
+          >
+            & Privacy Policy</a
+          >
+        </div>
+      </ion-col>
+      <ion-col size="12" *ngIf="isPati">
+        <ion-button class="pin-btn" (click)="goTopinM()" expand="block"
+          >pin management</ion-button
+        >
+      </ion-col>
+      <ion-col size="12">
+        <ion-button (click)="Logout()" expand="block"
+          >erase all settings</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>

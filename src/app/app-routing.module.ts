@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'bio-model',
     loadChildren: () => import('./bio-model/bio-model.module').then( m => m.BioModelPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({

@@ -16,7 +16,7 @@
 
     <ion-title class="user-list-title" *ngIf="isLoad">Dates</ion-title>
   </ion-toolbar>
-  <ion-toolbar *ngIf="isLoad" color="transparent " style="color: #dcdbdb">
+  <ion-toolbar slot="start" *ngIf="isLoad" color="transparent " style="color: #dcdbdb">
     <ion-title class="header-name">Hello, {{data_list?.customer.first_name}}</ion-title>
   </ion-toolbar>
 

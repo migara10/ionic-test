@@ -194,6 +194,6 @@ export class DateListPage implements OnInit {
   }
 
   Logout() {
-    // this.router.navigate(["settings"], {});
+    this.router.navigate(["settings"], {});
   }
 }

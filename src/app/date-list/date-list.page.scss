@@ -141,6 +141,11 @@ ion-header.hydrated {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
+.user-list-title,
+.header-name {
+  text-align: start;
+  padding-left: 20px;
+}
 
 .user-list-title {
   color: white;
@@ -397,6 +402,6 @@ ion-header.hydrated {
 .header-ios ion-toolbar:last-of-type {
   --border-width: 0 0 0 !important;
 }
-.user-list__content{
-    padding-left: 10px !important;
+.user-list__content {
+  padding-left: 10px !important;
 }

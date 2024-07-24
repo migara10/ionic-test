@@ -8,9 +8,14 @@ import {
 import { ApiService } from '../api.service';
 import { Constants } from '../app-routing.module';
 import * as $ from 'jquery';
-import { NgxOtpInputComponent, NgxOtpInputComponentOptions, NgxOtpStatus } from 'ngx-otp-input';
+import {
+  NgxOtpInputComponent,
+  NgxOtpInputComponentOptions,
+  NgxOtpStatus,
+} from 'ngx-otp-input';
 import { ModalController } from '@ionic/angular';
 import { PopupModelPage } from '../popup-model/popup-model.page';
+import { Router } from '@angular/router';
 
 interface PhoneNumber {
   number: string;
@@ -49,8 +54,15 @@ export class UserRegisterPage implements OnInit {
   currentElement: any;
   element_: any;
   firstname: any;
+  btnDisabled: boolean = true;
+  isSentOpt: boolean = true;
+  dataSet: any;
 
-  constructor(public ApiProvider: ApiService, private modalController: ModalController) {}
+  constructor(
+    public ApiProvider: ApiService,
+    private modalController: ModalController,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -65,13 +77,13 @@ export class UserRegisterPage implements OnInit {
   phoneForm = new FormGroup({
     phone: new FormControl(undefined, [Validators.required]),
   });
-  
+
   AgreementCheck(event: any) {
-    // this.btndisabled = !event.currentTarget.checked;
+    this.btnDisabled = !event.currentTarget.checked;
   }
   async presentModal() {
     const modal = await this.modalController.create({
-      component: PopupModelPage
+      component: PopupModelPage,
     });
     return await modal.present();
   }
@@ -81,8 +93,8 @@ export class UserRegisterPage implements OnInit {
       component: PopupModelPage,
       componentProps: {
         title: title,
-        id: id
-      }
+        id: id,
+      },
     });
     return await modal.present();
   }
@@ -99,7 +111,7 @@ export class UserRegisterPage implements OnInit {
 
   onOtpComplete(otp: string) {
     this.otpCompleteValue = otp;
-    console.log(this.otpCompleteValue, 'okk')
+    console.log(this.otpCompleteValue, 'okk');
     this.VerifyOTP(this.otpCompleteValue);
   }
   changePreferredCountries() {
@@ -109,6 +121,7 @@ export class UserRegisterPage implements OnInit {
   async SendOTP() {
     const phoneControl = this.phoneForm.controls['phone'];
     const phoneValue = phoneControl.value as unknown as PhoneNumber;
+    this.isSentOpt = true;
 
     if (!phoneControl.errors) {
       console.log(phoneValue.number, 'working');
@@ -159,14 +172,23 @@ export class UserRegisterPage implements OnInit {
     ).subscribe(
       (data) => {
         console.log(data);
+        if (this.dataSet.clients.length === 1) {
+          const doctor = this.dataSet.clients[0];
+          this.router.navigate(['start-screen'], { queryParams: { doctor: JSON.stringify(doctor) } });
+        } else {
+          this.router.navigate(['select-doctor'], { queryParams: { doctor: JSON.stringify(data.clients) } });
+        }
       },
       async (error) => {
         console.log(error);
+        this.resetForm();
       }
     );
   }
 
-  
+  resetForm() {
+    this.ngxOtpInput.reset();
+  }
 }
 
 /*   getCodeBoxElement(index: any | null) {

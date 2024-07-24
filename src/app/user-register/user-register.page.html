@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="wrapper fade-in">
+  <div class="wrapper fade-in" *ngIf="!isSentOpt">
     <h4 class="header-title">Validate Number</h4>
     <p class="detail-txt">Please Enter your mobile number.</p>
 
@@ -67,7 +67,9 @@
           >
         </div>
       </div>
-      <button (click)="SendOTP()" [disabled]="!f.form.valid">Send</button>
+      <button (click)="SendOTP()" [disabled]="(!f.form.valid || btnDisabled)">
+        Send
+      </button>
       <!-- 
       <div>
         <strong>Is input valid:</strong>
@@ -94,15 +96,19 @@
       </div> -->
     </form>
   </div>
-</ion-content>
-
-<ion-content>
-  <ngx-otp-input
-    #ngxOtpInput
-    *ngIf="showNgxOtpInput"
-    [options]="otpOptions"
-    [disabled]="disabled"
-    (otpComplete)="onOtpComplete($event)"
-    (otpChange)="onOtpChange($event)"
-  ></ngx-otp-input>
+  <div class="wrapper fade-in" *ngIf="isSentOpt">
+    <h4 class="header-title">Validate Number</h4>
+    <p class="detail-txt">
+      Please enter the OTP code that we are sent to your mobile
+      ({{selectedNumber}}).
+    </p>
+    <ngx-otp-input
+      #ngxOtpInput
+      *ngIf="showNgxOtpInput"
+      [options]="otpOptions"
+      [disabled]="disabled"
+      (otpComplete)="onOtpComplete($event)"
+      (otpChange)="onOtpChange($event)"
+    ></ngx-otp-input>
+  </div>
 </ion-content>

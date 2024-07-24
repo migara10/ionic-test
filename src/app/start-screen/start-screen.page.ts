@@ -59,7 +59,7 @@ export class StartScreenPage implements OnInit {
                   },
                   {
                     text: 'Yes', handler: () => {
-                      this.router.navigateByUrl('pin-number');
+                      this.router.navigateByUrl('date-list');
                     }
                   }
                 ],

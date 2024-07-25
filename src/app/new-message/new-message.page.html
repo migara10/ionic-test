@@ -1,0 +1,58 @@
+<ion-header color="transparent" style="color:#dcdbdb" no-border>
+  <ion-toolbar color="transparent " style="color:#dcdbdb; padding: 0.5em 1em 0 1em;">
+      <ion-icon (click)="dismissC(false)" class="icon-close" ios="ios-close-circle" md="md-close-circle"></ion-icon>
+      <h5 class="header-name ">Message </h5>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <div *ngIf="selectedVideo">
+      <video *ngIf="!isStream" fullscreen="fullscreen" class="video-ply" width="100%" autoplay="true" (ended)="videoEnded()" controls playsinline>
+      <source [src]="selectedVideo" type="video/mp4">
+      </video>
+
+      <div *ngIf="isStream" id="preview-container">
+          <div style="position: relative; background-color: black;padding: 2em 0;">
+              <img (click)="play()" src="../../assets/icon/play.png" id="play-btn-img">
+              <img (click)="play()" src="" style="padding: 2em;" id="thumb-img">
+          </div>
+      </div>
+  </div>
+
+  <!-- <p *ngIf="user?.message_info?.message_text" class="p-name">{{user.message_info.message_text}}</p>
+  <p *ngIf="!user?.message_info?.message_text" style="text-align: center;padding: 2em;" class="p-name">No message content available</p> -->
+
+  <p *ngIf="txtMsg" class="p-name">{{txtMsg}}</p>
+  <p *ngIf="!txtMsg" style="text-align: center;padding: 2em;" class="p-name">No message content available</p>
+
+  <div *ngIf="uploadedFiles">
+      <ul>
+         <!--  <li *ngFor="let file of uploadedFiles" class="upload-files-li"><a href="javascript:void(0)" (click)="download(file.url)" class="upload-files-a">{{file.fileName}}</a></li> -->
+      </ul>
+      <br>
+  </div>
+
+</ion-content>
+<ion-footer style="padding: 0 5%">
+  <ion-toolbar>
+      <div *ngIf="userType != 'DOCTOR'">
+          <div *ngIf="!user?.message_info?.is_viewed">
+              <ion-button class="pop-btn" (click)="dismissC(false)">Not Now</ion-button>
+              <ion-button class="pop-btn" (click)="read()" style="float: right;">Mark as read</ion-button>
+          </div>
+
+          <div *ngIf="user?.message_info?.is_viewed">
+              <ion-button class="pop-btn" color="danger" (click)="deleteMsg()">Erase</ion-button>
+              <ion-button class="pop-btn" (click)="dismissC(false)" style="float: right;">Keep</ion-button>
+          </div>
+      </div>
+
+      <div *ngIf="userType == 'DOCTOR'">
+          <div>
+              <ion-button class="pop-btn" (click)="dismissC(false)">Not Now</ion-button>
+              <ion-button color="danger" class="pop-btn" (click)="deleteMsg()" style="float: right;">Delete</ion-button>
+          </div>
+      </div>
+
+  </ion-toolbar>
+</ion-footer>

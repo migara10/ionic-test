@@ -1,0 +1,67 @@
+.icon-close {
+    font-size: 2em;
+    color: var(--ion-theme-color-8);
+    float: right;
+}
+
+.header-name {
+    // color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    padding: 0.8em 0;
+    display: inline;
+}
+
+.p-name {
+    // color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    padding: 1em;
+    font-size: 0.8em;
+}
+
+.upload-files {
+    // color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: left;
+    padding: 0.8em;
+    font-size: 1em;
+}
+
+.upload-files-li {
+    // color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.upload-files-a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: left;
+    padding: 1em;
+    font-size: 0.8em;
+    color: #3880ff;
+    // text-decoration: none;
+}
+
+// .video-ply {
+//     margin-top: 1em;
+// }
+.pop-btn {
+    width: 48%;
+    font-size: 0.7em;
+    padding: 0.2em;
+}
+
+#play-btn-img {
+    position: absolute;
+    width: 5em;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

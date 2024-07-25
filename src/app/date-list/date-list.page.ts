@@ -4,8 +4,9 @@ import { ApiService } from '../api.service';
 import * as moment from 'moment-timezone';
 import { Constants } from '../app-routing.module';
 import { ModalController } from '@ionic/angular';
-import { BioModelPage } from "../bio-model/bio-model.page";
+import { BioModelPage } from '../bio-model/bio-model.page';
 import { DatePipe } from '@angular/common';
+import { NewMessagePage } from '../new-message/new-message.page';
 
 interface Payload {
   id: string | null;
@@ -30,7 +31,7 @@ export class DateListPage implements OnInit {
     public ApiProvider: ApiService,
     private zone: NgZone,
     public modalController: ModalController,
-    private datePipe: DatePipe,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit() {
@@ -44,19 +45,19 @@ export class DateListPage implements OnInit {
     }, 1000);
   }
 
-   // shrinking header function
-   logScrolling(event: any) {
+  // shrinking header function
+  logScrolling(event: any) {
     const scroll_level = 100;
     if (event.detail.scrollTop >= scroll_level) {
-      $(".header-profile").addClass("shrink");
-      $(".avatar-header").hide();
+      $('.header-profile').addClass('shrink');
+      $('.avatar-header').hide();
       setTimeout(() => {
         this.IsAnimate = true;
       }, 500);
     } else {
       if (this.IsAnimate) {
-        $(".header-profile").removeClass("shrink");
-        $(".avatar-header").show();
+        $('.header-profile').removeClass('shrink');
+        $('.avatar-header').show();
         this.IsAnimate = false;
       }
     }
@@ -65,15 +66,19 @@ export class DateListPage implements OnInit {
   goToInsurance(date: any, event: MouseEvent) {
     event.stopPropagation(); // Prevent event from bubbling up
     console.log(date);
-    this.router.navigate(["insurance-data"], { queryParams: { id: date.id } });
+    this.router.navigate(['insurance-data'], { queryParams: { id: date.id } });
   }
 
   getTypeorDate(date: any) {
-    if (date.dates && date.dates[0].subcategory && date.dates[0].subcategory.name) {
+    if (
+      date.dates &&
+      date.dates[0].subcategory &&
+      date.dates[0].subcategory.name
+    ) {
       return date.dates[0].subcategory.name;
     } else {
-      const d = this.datePipe.transform(date.dates[0].date, "yyyy-MM-dd");
-      const dateC = moment(d, "YYYYMMDD").fromNow();
+      const d = this.datePipe.transform(date.dates[0].date, 'yyyy-MM-dd');
+      const dateC = moment(d, 'YYYYMMDD').fromNow();
       return dateC;
     }
   }
@@ -83,25 +88,27 @@ export class DateListPage implements OnInit {
       this.goToContent(date.contents[0]);
     } else {
       // this.startProgress(true);
-      this.router.navigate(["home"], { queryParams: { id: date.id } });
+      this.router.navigate(['home'], { queryParams: { id: date.id } });
     }
   }
 
   goToContent(content: any) {
-    this.router.navigate(["content"], {
-      queryParams: { content: JSON.stringify({ content, data_list: this.data_list }) },
+    this.router.navigate(['content'], {
+      queryParams: {
+        content: JSON.stringify({ content, data_list: this.data_list }),
+      },
     });
   }
 
   Getdate(date_: any, type: any) {
     const date = date_.dates[0].date;
     let dd;
-    if (type == "d") {
-      dd = this.datePipe.transform(date, "dd");
-    } else if (type == "m") {
-      dd = this.datePipe.transform(date, "MMM");
+    if (type == 'd') {
+      dd = this.datePipe.transform(date, 'dd');
+    } else if (type == 'm') {
+      dd = this.datePipe.transform(date, 'MMM');
     } else {
-      dd = Number(this.datePipe.transform(date, "yyyy"));
+      dd = Number(this.datePipe.transform(date, 'yyyy'));
     }
 
     return dd;
@@ -111,7 +118,9 @@ export class DateListPage implements OnInit {
     this.data_list = null;
     this.getAllContents();
     // document.documentElement.style.setProperty('--min-height', '55px');
-    this.doctor = JSON.parse(localStorage.getItem(Constants.SELECTED_TENANT_OBJ) || '{}');
+    this.doctor = JSON.parse(
+      localStorage.getItem(Constants.SELECTED_TENANT_OBJ) || '{}'
+    );
 
     /* this.events.subscribe(Constants.EVENT_REFRESH, (isrefesh) => {
       console.log("---------isrefesh", isrefesh);
@@ -187,13 +196,31 @@ export class DateListPage implements OnInit {
     return await modal.present();
   }
 
+  async openMessageModel() {
+    const modal = await this.modalController.create({
+      component: NewMessagePage,
+      cssClass: 'new-message-modal',
+      componentProps: {
+        user: this.data_list,
+        type: Constants.USER_TYPES.PATIENT,
+      },
+      backdropDismiss: false,
+    });
+    modal.onDidDismiss().then((data) => {
+      if (data.data.isdelete) {
+        this.getAllContents();
+      }
+    });
+    return await modal.present();
+  }
+
   openFMLAForm() {
-    console.log('object')
-    const url = "https://form.jotform.com/CWCAshburn/fmla-request-form";
-    window.open(url, "_blank");
+    console.log('object');
+    const url = 'https://form.jotform.com/CWCAshburn/fmla-request-form';
+    window.open(url, '_blank');
   }
 
   Logout() {
-    this.router.navigate(["settings"], {});
+    this.router.navigate(['settings'], {});
   }
 }

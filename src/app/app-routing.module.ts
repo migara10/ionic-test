@@ -36,6 +36,10 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
+  {
+    path: 'new-message',
+    loadChildren: () => import('./new-message/new-message.module').then( m => m.NewMessagePageModule)
+  },
 ];
 
 @NgModule({
